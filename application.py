@@ -9,16 +9,35 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     """Show latest file data"""
-    return render_template("index.html")
+    return render_template("index.html.j2")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    # Forget any user id
-    session.clear()
     if request.method == "POST":
         pass
     else:
-        return render_template("login.html")
+        return render_template("login.html.j2")
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        pass
+    else:
+        return render_template("register.html.j2")
+
+@app.route("/newpage", methods=["GET", "POST"])
+def newpage():
+    if request.method == "POST":
+        pass
+    else:
+        return render_template("newpage.html.j2")
+
+@app.route("/logout")
+def logout():
+    """Logs user out"""
+    # clear session
+    return render_template("logout.html.j2")
+
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
