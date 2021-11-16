@@ -5,5 +5,16 @@
 {% endblock %}
 
 {% block main %}
-    REGISTER HERE
+    <form action="/register" method="post">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="username" placeholder="Username" autocomplete="off" required autofocus>
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" required>
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" name="confirmation" placeholder="Confirm Password" autocomplete="off" required>
+        </div>
+        <button class="btn btn-dark" type="submit">Register</button>
+    </form>
 {% endblock %}
