@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <!-- TODO -->
+    <!-- Forms to allow user to log in. -->
+    <!-- Requires a form: one input for username, one for password, and one button to submit log in. -->
+    <form action="/login" method="post">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Username" autocomplete="off" required autofocus>
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" autocomplete="off" required>
+        </div>
+        <button class="btn btn-dark" type="submit">Log In</button>
+    </form>
+{% endblock %}
