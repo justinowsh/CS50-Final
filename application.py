@@ -2,10 +2,12 @@ from flask import Flask, redirect, render_template, request, flash, session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import timedelta
 
 
 app = Flask(__name__)
-
+app.secret_key = "651eca7d0c784040681b160cce51654b1f8998c23d780882be93eb40c5462a1d"
+app.permanent_session_lifetime = timedelta(minutes=5)
 @app.route("/")
 def index():
     """Show latest file data"""
@@ -14,7 +16,10 @@ def index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        pass
+        user = request.form.get("username")
+        session["user"] = user
+        flash(f"You are now logged in as {user}")
+        return redirect("/")
     else:
         return render_template("login.html.j2")
 
@@ -36,8 +41,14 @@ def newpage():
 def logout():
     """Logs user out"""
     # clear session
-    return render_template("logout.html.j2")
+    session.clear()
+    flash("You have been logged out!", "info")
+    return redirect("/")
 
+@app.route("/history")
+def history():
+    """Displays user's history"""
+    return render_template("history.html.j2")
 
 if __name__ == "__main__":
     app.run(debug=True)
