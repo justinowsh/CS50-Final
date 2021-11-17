@@ -2,12 +2,16 @@ from flask import Flask, redirect, render_template, request, flash, session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-from datetime import timedelta
+from datetime import timedelta, datetime
+import sqlite3
 
 
 app = Flask(__name__)
 app.secret_key = "651eca7d0c784040681b160cce51654b1f8998c23d780882be93eb40c5462a1d"
 app.permanent_session_lifetime = timedelta(minutes=5)
+
+
+
 @app.route("/")
 def index():
     """Show latest file data"""
@@ -26,7 +30,31 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        pass
+        con = sqlite3.connect("banking.db")
+        db = con.cursor()
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+        # Check if username has been taken
+        rows = db.execute("SELECT * FROM users WHERE username = ?", (username,))
+        
+        if len(rows.fetchall()) != 0:
+            flash(f"The username \"{username}\" is taken, please enter a different username.", "info")
+            return redirect("/register")
+
+        # Check if password and confirmation are the same
+        if password != confirmation:
+            flash("Password and confirmation password do not match.", "warning")
+            return redirect("/register")
+        
+        # Generate a hash for user's password and store it in the users table
+        pwhash = generate_password_hash("password")
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", (username, pwhash))
+        con.commit()
+        con.close()
+        flash("Registered!", "info")
+        return redirect("/login")
+
     else:
         return render_template("register.html.j2")
 
