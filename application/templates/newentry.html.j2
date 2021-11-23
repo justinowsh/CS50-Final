@@ -17,45 +17,48 @@
                     <div class="row">
                         <div class="col">
                             <p class="h5">Cheque</p>
+                            <div class="h6">Enter the total value collected from cheques today.</div>
                         </div>
                         <div class="col">
                             <p class="h5">Expected Total</p>
+                            <div class="h6">Enter the expected total generated today.</div>
                         </div> 
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">$</span>
-                                <input name="cheque" type="number" placeholder="Enter cheque amount" class="form-control">
+                                <input name="cheque" type="number" placeholder="Enter cheque amount" class="form-control" min=0 step="0.01" value=0.00>
                             </div>
                         </div>
                         <div class="col">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">$</span>
-                                <input name="expected_total" type="number" placeholder="Enter expected total amount" class="form-control">
+                                <input name="expected_total" type="number" placeholder="Enter expected total amount" class="form-control" min=0 step="0.01" value=0.00>
                             </div>
                         </div>
                     </div>
             </div>
             <div class="container p-1">
                 <p class="h5">Cash</p>
+                <div class="h6">Enter the number of notes/coins collected for the day, not the actual value. (Example: If 5 $100 notes were collected, enter 5 instead of $500.00)</div>
                 <div class="row p-2">
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$100.00</span>
-                            <input name="cash_100" type="number" placeholder="Enter quantity of notes" class="form-control">
+                            <input name="cash_100" type="number" placeholder="Enter quantity of notes" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$50.00</span>
-                            <input name="cash_50" type="number" placeholder="Enter quantity of notes" class="form-control">
+                            <input name="cash_50" type="number" placeholder="Enter quantity of notes" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$20.00</span>
-                            <input name="cash_20" type="number" placeholder="Enter quantity of notes" class="form-control">
+                            <input name="cash_20" type="number" placeholder="Enter quantity of notes" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                 </div>
@@ -63,19 +66,19 @@
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$10.00</span>
-                            <input name="cash_10" type="number" placeholder="Enter quantity of notes" class="form-control">
+                            <input name="cash_10" type="number" placeholder="Enter quantity of notes" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$5.00</span>
-                            <input name="cash_5" type="number" placeholder="Enter quantity of notes" class="form-control">
+                            <input name="cash_5" type="number" placeholder="Enter quantity of notes" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$2.00</span>
-                            <input name="coin_2" type="number" placeholder="Enter quantity of coins" class="form-control">
+                            <input name="coin_2" type="number" placeholder="Enter quantity of coins" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                 </div>
@@ -83,19 +86,19 @@
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$1.00</span>
-                            <input name="coin_1" type="number" placeholder="Enter quantity of coins" class="form-control">
+                            <input name="coin_1" type="number" placeholder="Enter quantity of coins" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$0.50</span>
-                            <input name="coin_50" type="number" placeholder="Enter quantity of coins" class="form-control">
+                            <input name="coin_50" type="number" placeholder="Enter quantity of coins" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$0.20</span>
-                            <input name="coin_20" type="number" placeholder="Enter quantity of coins" class="form-control">
+                            <input name="coin_20" type="number" placeholder="Enter quantity of coins" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                 </div>
@@ -103,13 +106,13 @@
                     <div class="col">
                         <div class="input-group mb-3">
                             <span class="input-group-text">$0.10</span>
-                            <input name="coin_10" type="number" placeholder="Enter quantity of coins" class="form-control">
+                            <input name="coin_10" type="number" placeholder="Enter quantity of coins" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group mb-3">
-                            <span class="input-group-text">$1.00</span>
-                            <input name="coin_1" type="number" placeholder="Enter quantity of coins" class="form-control">
+                            <span class="input-group-text">$0.05</span>
+                            <input name="coin_5" type="number" placeholder="Enter quantity of coins" class="form-control" min=0 step="0.01" value=0.00>
                         </div>
                     </div>
                     <div class="col"></div>
