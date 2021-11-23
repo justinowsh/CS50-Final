@@ -1,0 +1,162 @@
+{% extends "layout.html.j2" %}
+
+{% block title %}
+    New Page
+{% endblock %}
+
+{% block main %}
+    <section>
+        <div class="container p-2">
+            <p class="h4">New Entry</p>
+            <p>Date: {{ date }}</p>
+        </div>
+    </section>
+    <section>
+        <form action="/newentry" method="post">
+            <div class="container p-1">
+                    <div class="row">
+                        <div class="col">
+                            <p class="h5">Cheque</p>
+                        </div>
+                        <div class="col">
+                            <p class="h5">Expected Total</p>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input name="cheque" type="number" placeholder="Enter cheque amount" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input name="expected_total" type="number" placeholder="Enter expected total amount" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="container p-1">
+                <p class="h5">Cash</p>
+                <div class="row p-2">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$100.00</span>
+                            <input name="cash_100" type="number" placeholder="Enter quantity of notes" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$50.00</span>
+                            <input name="cash_50" type="number" placeholder="Enter quantity of notes" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$20.00</span>
+                            <input name="cash_20" type="number" placeholder="Enter quantity of notes" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$10.00</span>
+                            <input name="cash_10" type="number" placeholder="Enter quantity of notes" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$5.00</span>
+                            <input name="cash_5" type="number" placeholder="Enter quantity of notes" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$2.00</span>
+                            <input name="coin_2" type="number" placeholder="Enter quantity of coins" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$1.00</span>
+                            <input name="coin_1" type="number" placeholder="Enter quantity of coins" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$0.50</span>
+                            <input name="coin_50" type="number" placeholder="Enter quantity of coins" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$0.20</span>
+                            <input name="coin_20" type="number" placeholder="Enter quantity of coins" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$0.10</span>
+                            <input name="coin_10" type="number" placeholder="Enter quantity of coins" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$1.00</span>
+                            <input name="coin_1" type="number" placeholder="Enter quantity of coins" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div class="container p-1">
+                <div class="row">
+                    <div class="col">
+                        Expected Total:
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" value="Expected_total" aria-label="Disabled input example" disabled readonly>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Calculated Total:
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" value="Calculated_total" aria-label="Disabled input example" disabled readonly>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Variance:
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" value="Calculated-Expected" aria-label="Disabled input example" disabled readonly>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+                <button class="btn btn-primary" type="submit">Save & Submit</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}
