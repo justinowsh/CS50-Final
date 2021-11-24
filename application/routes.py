@@ -102,4 +102,7 @@ def logout():
 @app.route("/history")
 def history():
     """Displays user's history"""
-    return render_template("history.html.j2")
+    # Query all entries based on current user's session id
+    entries = Entry.query.filter_by(user_id=session["user_id"]).all()
+
+    return render_template("history.html.j2", entries=entries)

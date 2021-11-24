@@ -5,5 +5,34 @@
 {% endblock %}
 
 {% block main %}
-    THIS IS WHERE USER CAN VIEW THEIR HISTORY SORTED BY NEWEST TO OLDEST
+    <div class="container p-2">
+        <p class="h4">History</p>
+    </div>
+    <table class="table table-striped">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Cash</th>
+                <th scope="col">Cheque</th>
+                <th scope="col">Cash + Cheque</th>
+                <th scope="col">Expected Total</th>
+                <th scope="col">Variance</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if entries|length > 0 %}
+                {% for entry in entries %}
+                    <tr>
+                        <td>{{ entry.time }}</td>
+                        <td>${{ entry.cash }}</td>
+                        <td>${{ entry.cheque }}</td>
+                        <td>${{ entry.calculated_total }}</td>
+                        <td>${{ entry.expected_total }}</td>
+                        <td>${{ entry.variance }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
 {% endblock %}
