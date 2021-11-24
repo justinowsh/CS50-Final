@@ -64,7 +64,28 @@ def register():
 @app.route("/newentry", methods=["GET", "POST"])
 def newpage():
     if request.method == "POST":
-        pass
+        cheque = request.form.get("cheque")
+        cash = request.form.get("cash")
+        calc_total = request.form.get("calc_total")
+        expected_total = request.form.get("expected_total")
+        variance = request.form.get("variance")
+        print(f"cheque: {cheque}")
+        print(f"cash: {cash}")
+        print(f"calc_total: {calc_total}")
+        print(f"expected_total: {expected_total}")
+        print(f"variance: {variance}")
+        
+        # Check if user session is not timed out.
+        if not session["user_id"]:
+            flash("Session timed out, please log in again.", "info")
+            return render_template("login.html.j2")
+        
+        # INSERT values into entry database.
+        entry = Entry(user_id=session["user_id"], cheque=cheque, cash=cash, calculated_total=calc_total, expected_total=expected_total, variance=variance)
+        db.session.add(entry)
+        db.session.commit()
+        flash("Entry saved!", "info")
+        return render_template("index.html.j2")
     else:
         today = date.today()
         ftoday = today.strftime("%d/%m/%Y")

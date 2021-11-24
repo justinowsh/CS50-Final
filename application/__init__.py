@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = "651eca7d0c784040681b160cce51654b1f8998c23d780882be93eb40c5462a1d"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banking.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.permanent_session_lifetime = timedelta(minutes=5)
+app.permanent_session_lifetime = timedelta(minutes=60)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
